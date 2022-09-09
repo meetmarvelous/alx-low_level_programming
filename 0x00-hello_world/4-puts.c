@@ -1,5 +1,5 @@
 /*
- * File_name: 4-puts.c 
+ * File_name: 4-puts.c
  *Author: Afolabi
  * Function: Prints a string
  *
@@ -11,7 +11,7 @@
 
 /**
  * main - Prints "Programming is like building a multilingual
- *                puzzle, followed by a new line. 
+ *                puzzle, followed by a new line.
  *
  * Return: Always 0.
  */

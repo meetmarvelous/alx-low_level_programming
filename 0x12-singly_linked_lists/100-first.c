@@ -3,9 +3,9 @@
 void first(void) __attribute__ ((constructor));
 
 /**
- * first - prints something before main
- *
- * Return: void
+ * first - prints a sentence before the main
+ * function is executed
+ * Return: returns nothing
  */
 void first(void)
 {

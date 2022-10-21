@@ -1,53 +1,27 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * _strlen - finds the length of a string
- * @str: string to find the length of
- *
- * Return: length of string
- */
-unsigned int _strlen(char *str)
-{
-	unsigned int i;
-
-	for (i = 0; str[i]; i++)
-		;
-	return (i);
-}
-
-/**
- * add_node - adds a node to the beginning of a linked list
- * @head: double pointer to a lined list
- * @str: string to add to the new node
- *
- * Return: pointer to the new node
+ * add_node - a function that adds a new node at the beginning of a
+ * list_t list
+ * @head: the address of a pointer to list_t list.
+ * @str: the string to be duplicated
+ * Return: returns the address of the new element or NULL if it failed
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	/* Initialize variable new to type node */
-	list_t *new;
+	list_t *temp = NULL;
+	size_t i, count = 0;
 
-	/* Confirm that data field of node is not empty or null*/
-	if (str == NULL)
+	temp = malloc(sizeof(list_t));
+	if (temp == NULL)
 		return (NULL);
-	/* Allocate enough memory for new node using datatype definition*/
-	new = malloc(sizeof(list_t));
-	/*Confirm that memory is allocated*/
-	if (new == NULL)
-		return (NULL);
-	/* Initialize dada field of new node*/
-	new->str = strdup(str);
-	if (new->str == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	/* Initialize the length of the string in node using _strlen function*/
-	new->len = _strlen(new->str);
-	/* Move new node to start of list*/
-	new->next = *head;
-	*head = new;
-	return (new);
+
+	temp->str = strdup(str);
+	for (i = 0;  *(str + i) != '\0'; i++)
+		count++;
+	temp->len = count;
+	temp->next = *head;
+
+	*head = temp;
+	return (temp);
 }
